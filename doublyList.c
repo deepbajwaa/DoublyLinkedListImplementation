@@ -10,7 +10,19 @@ void printList(struct node *head)
     head = head->next;
   }
 }
+void freeList(struct node *head)
+{
+  /*Create a temporary variable*/
+  struct node *temp;
 
+  /*Traverse through the list and free memory*/
+  while(head)
+  {
+    temp = head;
+    head = head->next;
+    free(temp);
+  }
+}
 void append(struct node **head, int data)
 {
   /*Declare a single pointer in order to traverse through the list*/
@@ -42,4 +54,40 @@ void append(struct node **head, int data)
     traverse->next = newNode;
     newNode->prev = traverse;
   }
+}
+
+void removeNode(struct node **head, struct node *removeNode)
+{
+  /*Declare previous and successive nodees*/
+  struct node *sucNode = removeNode->next;
+  struct node *prevNode = removeNode->prev;
+
+  /*If there is no list that exits then return*/
+  if(*head == NULL || removeNode == NULL)
+  {
+    return;
+  }
+
+  /*If the head is to be removed.*/
+  if(*head == removeNode)
+  {
+    *head = sucNode;
+  }
+
+  /*If the node to be removed is not the last node*/
+  if(removeNode->next != NULL)
+  {
+    sucNode->prev = prevNode;
+  }
+
+  /*If the node to be removed is not the first node*/
+  if(removeNode->prev != NULL)
+  {
+    prevNode->next = sucNode;
+  }
+
+  /*Free the node to be removed*/
+  free(removeNode);
+  return;
+
 }

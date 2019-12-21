@@ -7,7 +7,14 @@ int main()
 
 	append(&head, 1);
 	append(&head, 2);
+	append(&head, 3);
 	printList(head);
+	removeNode(&head, head->next);
+	printList(head);
+	removeNode(&head, head);
+	printList(head);
+
+	freeList(head);
 
 	return 0;
 }
