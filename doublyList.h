@@ -12,6 +12,7 @@ struct node
 
 /*Functions*/
 void printList(struct node *head);
+void printListReverse(struct node *head);
 void freeList(struct node *head);
 void append(struct node **head, int data);
 void removeNode(struct node **head, struct node *removeNode);

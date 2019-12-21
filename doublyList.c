@@ -10,6 +10,29 @@ void printList(struct node *head)
     head = head->next;
   }
 }
+
+void printListReverse(struct node *head)
+{
+  /*Declare a single pointer for the last node in the list*/
+  struct node *last;
+
+  /*traverse through the list to get the last node in the list.*/
+  while(head)
+  {
+    last = head;
+    head = head->next;
+  }
+
+  /*Traverse list backwards whilst printing out the data*/
+  while(last)
+  {
+    printf("Data: %d\n", last->data);
+    last = last->prev;
+  }
+
+}
+
+
 void freeList(struct node *head)
 {
   /*Create a temporary variable*/
