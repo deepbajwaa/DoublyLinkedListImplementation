@@ -79,6 +79,28 @@ void append(struct node **head, int data)
   }
 }
 
+void prepend(struct node **head, int data)
+{
+  /*Allocate a new node*/
+  struct node *newNode = malloc(sizeof(struct node));
+
+  /*Initialize with data*/
+  newNode->data = data;
+
+  /*Point the newNode to the current head, and point the newNode's prev to NULL*/
+  newNode->next = *head;
+  newNode->prev = NULL;
+
+  /*If the head exits then point its prev to the newNode*/
+  if(*head == NULL)
+  {
+    (*head)->prev = newNode;
+  }
+
+  /*Change the head to the newNode*/
+  *head = newNode;
+}
+
 void removeNode(struct node **head, struct node *removeNode)
 {
   /*Declare previous and successive nodees*/
@@ -113,4 +135,25 @@ void removeNode(struct node **head, struct node *removeNode)
   free(removeNode);
   return;
 
+}
+
+struct node *pop(struct node **head)
+{
+  /*Remove the head*/
+  removeNode(head, *head);
+  /*Return the head*/
+  return *head;
+}
+
+
+void pushQueue(struct node **head, int data)
+{
+  /*Add to the end of the Queue*/
+  append(head, data);
+}
+
+void pushStack(struct node **head, int data)
+{
+  /*Add to the top of the stack*/
+  prepend(head, data);
 }
