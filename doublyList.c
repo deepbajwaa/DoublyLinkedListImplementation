@@ -1,5 +1,16 @@
 #include "doublyList.h"
 
+
+void printList(struct node *head)
+{
+  /*traverse through the list whilst printing out the data*/
+  while(head)
+  {
+    printf("Data: %d\n", head->data);
+    head = head->next;
+  }
+}
+
 void append(struct node **head, int data)
 {
   /*Declare a single pointer in order to traverse through the list*/
@@ -14,7 +25,7 @@ void append(struct node **head, int data)
   newNode->prev = NULL;
 
   /*Check to see if head exists, if it does then append the new node as the head of the list*/
-  if(*head)
+  if(*head == NULL)
   {
     *head = newNode;
     return;

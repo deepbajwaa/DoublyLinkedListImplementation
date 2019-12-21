@@ -11,4 +11,5 @@ struct node
 };
 
 /*Functions*/
+void printList(struct node *head);
 void append(struct node **head, int data);
