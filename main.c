@@ -10,6 +10,7 @@ int main()
 	append(&head, 1);
 	append(&head, 2);
 	append(&head, 3);
+	append(&head, 7);
 	printf("Print forewards: \n");
 	printList(head);
 	printf("Print backwards: \n");

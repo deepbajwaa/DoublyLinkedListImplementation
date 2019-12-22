@@ -170,6 +170,27 @@ void pushStack(struct node **head, int data)
   prepend(head, data);
 }
 
+void mergeSort(struct node **headRef)
+{
+  /*Declare and initialize pointers*/
+  struct node *head = *headRef;
+  struct node *frontHalf;
+  struct node *backHalf;
+
+  /*Check the base case, if the list consists of only 0 or 1 nodes*/
+  if(*headRef == NULL || (*headRef)->next == NULL)
+  {
+    return;
+  }
+
+  /*Split the list into 2 halfs*/
+  split(head, &frontHalf, &backHalf);
+
+  /*Keep breaking the list into halfs to sort the list*/
+  mergeSort(&frontHalf);
+  mergeSort(&backHalf);
+}
+
 void split(struct node *list, struct node **frontHalf, struct node **backHalf)
 {
   /*Declare and initialize pointers*/
