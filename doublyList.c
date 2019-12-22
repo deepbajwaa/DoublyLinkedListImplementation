@@ -16,6 +16,12 @@ void printListReverse(struct node *head)
   /*Declare a single pointer for the last node in the list*/
   struct node *last;
 
+  /*If the head doesn't exist then exit*/
+  if(head == NULL)
+  {
+    return;
+  }
+
   /*traverse through the list to get the last node in the list.*/
   while(head)
   {
@@ -162,4 +168,32 @@ void pushStack(struct node **head, int data)
 {
   /*Add to the top of the stack*/
   prepend(head, data);
+}
+
+void split(struct node *list, struct node **frontHalf, struct node **backHalf)
+{
+  /*Declare and initialize pointers*/
+  struct node *fast = list->next;
+  struct node *slow = list;
+
+  /*Fast and Slow are two pointers that are going to traverse through the list, where fast will be traversing
+  the list twice as fast as the slow pointer.*/
+  while(fast != NULL)
+  {
+    fast = fast->next;
+
+    if(fast != NULL)
+    {
+      slow = slow->next;
+      fast = fast->next;
+    }
+  }
+
+  /*Since slow ends up before the midpoint the backHalf starts from slow's next*/
+  /*slow->prev = NULL;*/
+  *frontHalf = list;
+  *backHalf = slow->next;
+  (*backHalf)->prev = NULL;
+  slow->next = NULL;
+
 }

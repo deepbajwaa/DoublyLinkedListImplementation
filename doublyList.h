@@ -20,3 +20,4 @@ void removeNode(struct node **head, struct node *removeNode);
 struct node *pop(struct node **head);
 void pushQueue(struct node **head, int data);
 void pushStack(struct node **head, int data);
+void split(struct node *list, struct node **frontHalf, struct node **backHalf);

@@ -4,6 +4,8 @@ int main()
 {
 	/*Declare a new pointer as the head of the list.*/
 	struct node *head = NULL;
+	struct node *frontHalf;
+	struct node *backHalf;
 
 	append(&head, 1);
 	append(&head, 2);
@@ -21,32 +23,79 @@ int main()
 	printList(head);
 	*/
 
+	/*
 	printf("Append\n");
 	prepend(&head, 4);
 	prepend(&head, 5);
 	prepend(&head, 6);
 	printList(head);
+	*/
 
-
+	/*
 	printf("Pop Test\n");
 	struct node *returnNode1 = pop(&head);
 	struct node *returnNode2 = pop(&head);
 	struct node *returnNode3 = pop(&head);
+	struct node *returnNode4 = pop(&head);
+	struct node *returnNode5 = pop(&head);
 
 	printf("Data from first pop: %d\n", returnNode1->data);
 	printf("Data from second pop: %d\n", returnNode2->data);
 	printf("Data from third pop: %d\n", returnNode3->data);
 
+	if(returnNode4 == NULL)
+	{
+		printf("The fourth pop returned a NULL node.\n");
+	}
+
+	if(returnNode5 == NULL)
+	{
+		printf("The fifth pop returned a NULL node.\n");
+	}
 
 	printf("Print forewards: \n");
 	printList(head);
 	printf("Print backwards: \n");
 	printListReverse(head);
 
-	freeList(head);
 	free(returnNode1);
 	free(returnNode2);
 	free(returnNode3);
+
+	*/
+
+	/*
+	printf("Push onto stack\n");
+	pushStack(&head, 12);
+	pushStack(&head, 24);
+
+	printList(head);
+
+	printf("Push onto Queue\n");
+	pushQueue(&head, 44);
+	pushQueue(&head, 88);
+
+	printList(head);
+	*/
+
+	split(head, &frontHalf, &backHalf);
+	printf("The front half: \n");
+	printList(frontHalf);
+	printf("The front half (Backwards): \n");
+	printListReverse(frontHalf);
+	printf("The back half: \n");
+	printList(backHalf);
+	printf("The back half (Backwards): \n");
+	printListReverse(backHalf);
+
+
+	printf("The original list (should be list in half): \n");
+	printList(head);
+
+	freeList(head);
+	freeList(backHalf);
+	/*freeList(frontHalf);
+	freeList(backHalf);*/
 
 	return 0;
 }
