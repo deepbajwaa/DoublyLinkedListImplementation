@@ -223,8 +223,8 @@ void split(struct node *list, struct node **frontHalf, struct node **backHalf)
 
 struct node *sortNode(struct node *a, struct node *b)
 {
-  /*Create a variable for the comparison needed to be made*/
-  struct node *list = NULL;
+  /*Create a variable for the comparison needed to be made
+  struct node *list = NULL;*/
 
   /*Base case: if either a or b are null*/
   if(a == NULL)
@@ -239,16 +239,18 @@ struct node *sortNode(struct node *a, struct node *b)
   /*Check to see which node's data value is smaller*/
   if(a->data <= b->data)
   {
-    list = a;
     /*Sort the remaining nodes in both lists*/
-    list->next = sortNode(a->next, b);
+    a->next = sortNode(a->next, b);
+    a->next->prev = a;
+    a->prev = NULL;
+    return a;
+
   }
   else
   {
-    list = b;
-    list->next = sortNode(a, b->next);
+    b->next = sortNode(a, b->next);
+    b->next->prev = b;
+    b->prev = NULL;
+    return b;
   }
-
-  /*Return the created list*/
-  return list;
 }
