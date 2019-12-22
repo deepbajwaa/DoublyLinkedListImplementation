@@ -254,3 +254,79 @@ struct node *sortNode(struct node *a, struct node *b)
     return b;
   }
 }
+
+void insertAfter(struct node *prevNode, int data)
+{
+  /*Declare variables*/
+  struct node *newNode;
+
+  /*Make sure that the node passed to the function exists*/
+  if(prevNode == NULL)
+  {
+    printf("Invalid Node!\n");
+    return;
+  }
+
+  /*Allocate a new node & insert data*/
+  newNode = malloc(sizeof(struct node));
+  newNode->data = data;
+
+  /*Reassign the prevNode and the newNode's pointers accordingly*/
+  newNode->next = prevNode->next;
+  newNode->prev = prevNode;
+
+  /*Reassign prevNode and the next node*/
+  prevNode->next = newNode;
+
+  /*If the user wants to add after the last node in the list*/
+  if(newNode->next != NULL)
+  {
+    newNode->next->prev = newNode;
+  }
+
+}
+
+void removeAfter(struct node *prevNode)
+{
+  /*Declare pointers and variables*/
+  struct node *temp;
+  struct node *sucNode;
+
+  /*Check to see if valid node was passed*/
+  if(prevNode == NULL || prevNode->next == NULL)
+  {
+    printf("Invalid Node!\n");
+    return;
+  }
+
+  /*Initialize pointers*/
+  temp = prevNode->next;
+  sucNode = temp->next;
+
+  /*Reassign pointers*/
+  prevNode->next = sucNode;
+
+  if(sucNode != NULL)
+  {
+    sucNode->prev = prevNode;
+  }
+
+  /*Free the temp pointer*/
+  free(temp);
+}
+
+int length(struct node *head)
+{
+  /*Declare and initialize variables*/
+  int numOfElements = 0;
+
+  /*traverse through the list to get the length*/
+  while(head)
+  {
+    numOfElements++;
+    head = head->next;
+  }
+
+  /*Return length*/
+  return numOfElements;
+}

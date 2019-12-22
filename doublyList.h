@@ -23,3 +23,6 @@ void pushStack(struct node **head, int data);
 void mergeSort(struct node **headRef);
 void split(struct node *list, struct node **frontHalf, struct node **backHalf);
 struct node *sortNode(struct node *a, struct node *b);
+void insertAfter(struct node *prevNode, int data);
+void removeAfter(struct node *prevNode);
+int length(struct node *head);

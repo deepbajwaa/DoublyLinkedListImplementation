@@ -4,8 +4,12 @@ int main()
 {
 	/*Declare a new pointer as the head of the list.*/
 	struct node *head = NULL;
+	struct node *prev;
+
+	/*
 	struct node *frontHalf;
 	struct node *backHalf;
+	*/
 
 	append(&head, 2);
 	append(&head, 1);
@@ -104,6 +108,32 @@ int main()
 
 	printf("List Backwards\n");
 	printListReverse(head);
+
+	/*
+	prev = head->next->next->next->next;
+	insertAfter(prev, 8);
+
+	printf("After insert\n");
+	printList(head);
+
+	printf("List Backwards\n");
+	printListReverse(head);
+	*/
+
+	prev = head->next->next;
+	if(prev == NULL)
+  {
+    printf("Invalid Node!\n");
+  }
+	removeAfter(prev);
+
+	printf("After remove\n");
+	printList(head);
+
+	printf("List Backwards\n");
+	printListReverse(head);
+
+	printf("The list has %d elements.\n", length(head));
 
 	freeList(head);
 
