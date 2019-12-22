@@ -139,10 +139,16 @@ void removeNode(struct node **head, struct node *removeNode)
 
 struct node *pop(struct node **head)
 {
-  /*Remove the head*/
-  removeNode(head, *head);
+  /*Get the popped node*/
+  struct node *poppedNode = *head;
+
+  if(*head != NULL)
+  {
+    *head = (*head)->next;
+  }
+
   /*Return the head*/
-  return *head;
+  return poppedNode;
 }
 
 
