@@ -7,10 +7,10 @@ int main()
 	struct node *frontHalf;
 	struct node *backHalf;
 
-	append(&head, 1);
 	append(&head, 2);
-	append(&head, 3);
+	append(&head, 1);
 	append(&head, 7);
+	append(&head, 5);
 	printf("Print forewards: \n");
 	printList(head);
 	printf("Print backwards: \n");
@@ -79,6 +79,7 @@ int main()
 	printList(head);
 	*/
 
+	/*
 	split(head, &frontHalf, &backHalf);
 	printf("The front half: \n");
 	printList(frontHalf);
@@ -95,8 +96,16 @@ int main()
 
 	freeList(head);
 	freeList(backHalf);
-	/*freeList(frontHalf);
-	freeList(backHalf);*/
+	*/
+
+	mergeSort(&head);
+	printf("Sorted List\n");
+	printList(head);
+
+	printf("List Backwards\n");
+	printListReverse(head);
+
+	freeList(head);
 
 	return 0;
 }

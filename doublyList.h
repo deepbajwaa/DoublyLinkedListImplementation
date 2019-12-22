@@ -22,3 +22,4 @@ void pushQueue(struct node **head, int data);
 void pushStack(struct node **head, int data);
 void mergeSort(struct node **headRef);
 void split(struct node *list, struct node **frontHalf, struct node **backHalf);
+struct node *sortNode(struct node *a, struct node *b);
