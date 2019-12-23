@@ -26,3 +26,7 @@ struct node *sortNode(struct node *a, struct node *b);
 void insertAfter(struct node *prevNode, int data);
 void removeAfter(struct node *prevNode);
 int length(struct node *head);
+struct node *search(struct node *head, int target);
+struct node *searchList(struct node *head, int target);
+struct node *copyList(struct node *start, struct node *end);
+void removeRepeats(struct node *list);

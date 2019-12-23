@@ -5,6 +5,7 @@ int main()
 	/*Declare a new pointer as the head of the list.*/
 	struct node *head = NULL;
 	struct node *prev;
+	struct node *temp;
 
 	/*
 	struct node *frontHalf;
@@ -12,9 +13,14 @@ int main()
 	*/
 
 	append(&head, 2);
+	append(&head, 2);
 	append(&head, 1);
 	append(&head, 7);
 	append(&head, 5);
+	append(&head, 7);
+	append(&head, 10);
+	append(&head, 10);
+	append(&head, 10);
 	printf("Print forewards: \n");
 	printList(head);
 	printf("Print backwards: \n");
@@ -120,6 +126,7 @@ int main()
 	printListReverse(head);
 	*/
 
+	/*
 	prev = head->next->next;
 	if(prev == NULL)
   {
@@ -134,6 +141,45 @@ int main()
 	printListReverse(head);
 
 	printf("The list has %d elements.\n", length(head));
+	*/
+
+	/*
+	temp = search(head, 50);
+
+	if(temp != NULL)
+	{
+		printf("The value %d was found in the list.\n", temp->data);
+	}
+	else
+	{
+		printf("The value was not found in the list.\n");
+	}*/
+
+	/*
+	temp = searchList(head, 7);
+
+	printf("Search List:\n");
+	printList(temp);
+	printf("Search List backwards\n");
+	printListReverse(temp);
+	freeList(temp);
+	*/
+
+	/*
+	temp = copyList(NULL, head->next->next);
+
+	printf("Copied List:\n");
+	printList(temp);
+	printf("Search List backwards:\n");
+	printListReverse(temp);
+	freeList(temp);
+	*/
+
+	removeRepeats(head);
+	printf("Removed Repeats List:\n");
+	printList(head);
+	printf("Removed Repeats List backwards:\n");
+	printListReverse(head);
 
 	freeList(head);
 

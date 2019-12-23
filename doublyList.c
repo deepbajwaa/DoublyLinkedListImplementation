@@ -1,6 +1,5 @@
 #include "doublyList.h"
 
-
 void printList(struct node *head)
 {
   /*traverse through the list whilst printing out the data*/
@@ -313,6 +312,114 @@ void removeAfter(struct node *prevNode)
 
   /*Free the temp pointer*/
   free(temp);
+}
+
+struct node *search(struct node *head, int target)
+{
+  /*Declare pointers
+  struct node *found;*/
+
+  /*Search the list for the node, if found then return the node*/
+  while(head)
+  {
+    if(head->data == target)
+    {
+      return head;
+    }
+    head = head->next;
+  }
+
+  /*Return NULL if no match was found*/
+  return NULL;
+}
+
+struct node *searchList(struct node *head, int target)
+{
+  /*Declare pointers*/
+  struct node *newList = NULL;
+
+  /*Traverse through the list adding any matching elements*/
+  while(head)
+  {
+    if(head->data == target)
+    {
+      append(&newList, target);
+    }
+    head = head->next;
+  }
+
+  /*Return the created list*/
+  return newList;
+}
+
+struct node *copyList(struct node *start, struct node *end)
+{
+  /*Declare newList pointer*/
+  struct node *newList = NULL;
+
+  /*Check for valid parameters*/
+  if(end != NULL)
+  {
+    if(search(start, end->data) == NULL)
+    {
+      return NULL;
+    }
+  }
+
+  if(start == NULL)
+  {
+    return NULL;
+  }
+
+  /*Create copy of original list*/
+  while(start != end)
+  {
+    append(&newList, start->data);
+    start = start->next;
+  }
+
+  /*Return the copied list*/
+  return newList;
+}
+
+void removeRepeats(struct node *list)
+{
+  /*Declare variables*/
+  struct node *currentNode;
+  struct node *nextNode;
+
+  /*Check to see if the list is empty*/
+  if(list == NULL)
+  {
+    return;
+  }
+
+  /*Initialize pointers*/
+  currentNode = list;
+  nextNode = list->next;
+
+  /*Remove the currentNode if it is the same as the nextNode*/
+  while(currentNode->next != NULL && nextNode->next != NULL)
+  {
+    if(currentNode->data == nextNode->data)
+    {
+      nextNode = nextNode->next;
+      removeNode(&list, currentNode);
+      currentNode = nextNode->prev;
+    }
+    else
+    {
+      currentNode = currentNode->next;
+      nextNode = nextNode->next;
+    }
+  }
+
+  /*If the last two nodes are still the same remove the nextNode*/
+  if(currentNode->data == nextNode->data)
+  {
+    removeNode(&list, nextNode);
+  }
+
 }
 
 int length(struct node *head)
