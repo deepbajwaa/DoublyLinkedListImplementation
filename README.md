@@ -1,5 +1,6 @@
 # DoublyLinkedListImplementation
 I wanted to practice implementing a double linked list, and wanted to learn about how they work to make me a better programmer.
+This library was designed to make the implementation of a doubly linked list easier. If you want to divert from this base library go ahead by making your desired changes in the doublyList.h and .c files respectively. 
 
 To Run:
 1. Clone the repository and copy paste the doublyList.h and doublyList.c files into your project.
@@ -69,16 +70,27 @@ List of Functions(with descriptions):
   -@param backHalf is the memory address of the pointer that points to the head of the back half of the list.
   
 12. sortNode - This function is used to sort two halfs of a list into one sorted list.
+
   -@param a is a pointer to the first list.
   
   -@param b is a pointer to the second list.
   
   -@returns a pointer to the head of the list.
   
-13. insertAfter -
-14. removeAfter -
-15. length - 
-16. search - 
+13. insertAfter - This function is used to insert a node after a specified node.
+
+  -@param prevNode is a pointer to the node that the new node is to be inserted after.
+  
+  -@param data is an integer you want to add to the list.
+  
+14. removeAfter - This function is used to remove a node after a specified node.
+
+  -@param prevNode is a pointer to the node that comes before the node that is to be removed.
+  
+15. length - This function returns the length of the list (# of nodes in the list).
+  -@param head the memory address of the head of the list should be passed to this function.
+  
+16. search - This function searches a list for a certain 
 17. searchList -
 18. copyList - 
 19. removeRepeats - 
