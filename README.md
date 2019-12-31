@@ -11,23 +11,76 @@ List of Functions(with descriptions):
 1. printList - This will print the list in order.
 
   -@param head this is a pointer to the start of the list.
+  
 2. printListReverse - This will print the list backwards.
 
   -@param head this is a pointer to the start of the list.
+  
 3. freeList - This will free the memory allocated by the list.
 
   -@param head this is a pointer to the start of the list.
+  
 4. append - This will add a node to the end of the list.
 
   -@param head the memory address of the head of the list should be passed to this function.
   
-   -@param data this is any number you want to add to the list.
+   -@param data this is any integer you want to add to the list.
+   
 5. prepend - This will add a node to the beggining of the list.
 
   -@param head the memory address of the head of the list should be passed to this function.
-   -@param data this is any number you want to add to the list.
-6. removeNode - This
+  
+   -@param data this is any integer you want to add to the list.
+   
+6. removeNode - This function is used to remove a specific node.
 
   -@param head the memory address of the head of the list should be passed to this function.
+  
+  -@param removeNode is a pointer to the specified node.
+  
+7. pop - This is used to pop a node off the list.
+
+  -@param head the memory address of the head of the list should be passed to this function.
+  
+  -@returns the popped node.
+  
+8. pushQueue - This function will push a node onto the list treating the list as a Queue.
+
+  -@param head the memory address of the head of the list should be passed to this function.
+  
+  -@param data this is any integer you want to add to the list.
+  
+9. pushStack - This function will push a node onto the list treating the list as a Stack.
+  
+  -@param head the memory address of the head of the list should be passed to this function.
+  
+  -@param data this is any integer you want to add to the list
+  
+10. mergeSort - This function sorts the list using the mergesort algorithm.
+
+  -@param head the memory address of the head of the list should be passed to this function.
+  
+11. split - This function splits a list into half.
+
+  -@param list is a pointer to the head of the list.
+  
+  -@param frontHalf is the memory address of the pointer that points to the head of the front half of the list.
+  
+  -@param backHalf is the memory address of the pointer that points to the head of the back half of the list.
+  
+12. sortNode - This function is used to sort two halfs of a list into one sorted list.
+  -@param a is a pointer to the first list.
+  
+  -@param b is a pointer to the second list.
+  
+  -@returns a pointer to the head of the list.
+  
+13. insertAfter -
+14. removeAfter -
+15. length - 
+16. search - 
+17. searchList -
+18. copyList - 
+19. removeRepeats - 
   
    -@param data this is the node you want to remove from the list.
