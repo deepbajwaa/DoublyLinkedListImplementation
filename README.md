@@ -9,17 +9,25 @@ To Run:
 List of Functions(with descriptions):
 
 1. printList - This will print the list in order.
+
   -@param head this is a pointer to the start of the list.
 2. printListReverse - This will print the list backwards.
+
   -@param head this is a pointer to the start of the list.
 3. freeList - This will free the memory allocated by the list.
+
   -@param head this is a pointer to the start of the list.
 4. append - This will add a node to the end of the list.
+
   -@param head the memory address of the head of the list should be passed to this function.
+  
    -@param data this is any number you want to add to the list.
 5. prepend - This will add a node to the beggining of the list.
+
   -@param head the memory address of the head of the list should be passed to this function.
    -@param data this is any number you want to add to the list.
 6. removeNode - This
+
   -@param head the memory address of the head of the list should be passed to this function.
+  
    -@param data this is the node you want to remove from the list.
