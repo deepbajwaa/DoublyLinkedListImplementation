@@ -90,9 +90,28 @@ List of Functions(with descriptions):
 15. length - This function returns the length of the list (# of nodes in the list).
   -@param head the memory address of the head of the list should be passed to this function.
   
-16. search - This function searches a list for a certain 
-17. searchList -
-18. copyList - 
-19. removeRepeats - 
+16. search - This function searches a list for a specified integer.
+
+  -@param head is a pointer to the head of the list.
   
-   -@param data this is the node you want to remove from the list.
+  -@param target is an integer that is to be searched for.
+  
+  -@returns the specified node without removing it from the list, if the element is not found, then NULL is returned.
+
+17. searchList - This function searches the list for a certain element, and returns a pointer to a newly created doubly linked list of all the matching nodes.
+
+  -@param head is a pointer to the head of the list.
+  
+  -@param target is an integer that is to be searched for.
+  
+  -@returns a pointer to a the newly formed linked list.
+  
+18. copyList - This function will copy the passed list from the start node, until the end node.
+
+  -@param start is a pointer to the start of the node.
+  
+  -@param end is a pointer to the end of the node.
+  
+19. removeRepeats - This function will remove any consecutively repeated elements in the list (repeated one after the other).
+
+  -@param list is a single pointer to the head of the list.
